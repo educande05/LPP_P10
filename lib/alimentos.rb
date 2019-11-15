@@ -1,11 +1,9 @@
 require "alimentos/version"
 
-module Alimentos
-  class Error < StandardError; end
-  
-  class Alimentos
 
-  attr_accessor :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno
+  class Alimento
+
+  attr_accessor :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno, :hombre, :mujer
 
   def initialize  (nombre, proteinas, carbohidratos, lipidos, gei, terreno)
     @nombre = nombre
@@ -14,10 +12,17 @@ module Alimentos
     @lipidos  = lipidos
     @gei  = gei
     @terreno = terreno
+    @hombre = []
+    @mujer = []
+
   end
 
   def to_s_name
     "#{@nombre}"
+  end
+
+  def to_s_proteinas
+    "#{@proteinas}"
   end
 
   def to_s_gei
@@ -51,5 +56,4 @@ module Alimentos
     valor=factor*@terreno
   end
 
-end
 end
