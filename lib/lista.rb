@@ -20,3 +20,7 @@ module Alimento
       end
 
     end
+
+    def empty
+      head == tail && head.value == nil
+    end
