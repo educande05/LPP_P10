@@ -111,6 +111,7 @@ RSpec.describe Alimento::Lista do
     expect(first.value).to eq(5)
     expect(second.value).to eq(10)
     expect(third.value).to eq(15)
+    end
   end
 
     it "Existe lista con cabeza y cola" do
