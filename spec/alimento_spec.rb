@@ -135,4 +135,18 @@ RSpec.describe Alimento::Lista do
     expect(lista.tail.value).to eq("ruby")
     lista << true
     expect(lista.tail.value).to eq(true)
+  end
+
+    it "Se extrae el primer elemento de la lista" do
+    lista = Alimento::Lista.new()
+    lista << "test"
+    lista << 4
+    expect(lista.first).to eq("test")
+  end
+
+  it "Se extrae el último elemento de la lista" do
+    lista = Alimento::Lista.new()
+    lista << "test"
+    lista << 4
+    expect(lista.last).to eq(4)
   end  
