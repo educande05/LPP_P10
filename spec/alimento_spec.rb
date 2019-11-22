@@ -112,3 +112,27 @@ RSpec.describe Alimento::Lista do
     expect(second.value).to eq(10)
     expect(third.value).to eq(15)
   end
+
+    it "Existe lista con cabeza y cola" do
+    lista = Alimento::Lista.new()
+    lista << 5
+    lista << "ruby"
+    expect(lista.head).not_to be nil
+    expect(lista.tail).not_to be nil
+  end
+
+  it "Se puede insertar un elemento en la lista" do
+    lista = Alimento::Lista.new()
+    lista << 8
+    expect(lista.tail.value).to eq(8)
+  end
+
+  it "Se pueden insertar varios elementos en la lista" do
+    lista = Alimento::Lista.new()
+    lista << 3
+    expect(lista.tail.value).to eq(3)
+    lista << "ruby"
+    expect(lista.tail.value).to eq("ruby")
+    lista << true
+    expect(lista.tail.value).to eq(true)
+  end  
