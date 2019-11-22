@@ -99,3 +99,16 @@ RSpec.describe Alimento::Lista do
   it "Comprobar que la lista comienza vacía" do
     lista = Alimento::Lista.new()
     expect(lista.empty).to eq(true)
+
+    it "Existe nodo con datos, nodo siguiente y nodo previo" do
+    lista = Alimento::Lista.new()
+    lista << 5
+    lista << 10
+    lista << 15
+    first = lista.head
+    second = first.next
+    third = second.next
+    expect(first.value).to eq(5)
+    expect(second.value).to eq(10)
+    expect(third.value).to eq(15)
+  end
