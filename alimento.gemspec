@@ -1,10 +1,10 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "alimentos/version"
+require "alimento/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "alimentos"
-  spec.version       = Alimentos::VERSION
+  spec.version       = Alimento::VERSION
   spec.authors       = ["Eduardo Pérez Suárez"]
   spec.email         = ["alu0100890174@ull.edu.es"]
 
@@ -32,4 +32,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "guard-bundler"
 end

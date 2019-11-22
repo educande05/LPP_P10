@@ -78,3 +78,24 @@ RSpec.describe Alimento::Alimento do
   end
 end
 
+RSpec.describe Alimento::Lista do
+
+  it "has a version number" do
+    expect(Alimento::VERSION).not_to be nil
+  end
+
+  it "Crea un objeto de tipo 'lista'" do
+    lista = Alimento::Lista.new()
+    expect(lista).to be_kind_of(Alimento::Lista)
+  end
+
+  it "Crea un objeto de tipo 'lista' con argumentos" do
+    lista = Alimento::Lista.new(3, "ruby", true)
+    expect(lista).to be_kind_of(Alimento::Lista)
+    expect(lista.first).to eq(3)
+    expect(lista.last).to eq(true)
+  end
+
+  it "Comprobar que la lista comienza vacía" do
+    lista = Alimento::Lista.new()
+    expect(lista.empty).to eq(true)
