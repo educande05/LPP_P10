@@ -56,3 +56,18 @@ module Alimento
         i
       end
     end
+
+    def unshift(value)
+      if empty
+        @head.value = value
+      elsif size == 1
+        @tail = Nodo.new(value, nil, @head)
+        @head.next = @tail
+      else
+        aux = Nodo.new(@tail.value, nil, @tail.prev)
+        pre_tail = @tail.prev
+        @tail = Nodo.new(value, nil, aux)
+        aux.next = @tail
+        pre_tail.next = aux
+      end
+    end
