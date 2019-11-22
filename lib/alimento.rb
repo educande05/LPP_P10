@@ -1,4 +1,4 @@
-require "alimentos/version"
+require "alimento/version"
 
 
   class Alimento
