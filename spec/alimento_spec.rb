@@ -149,4 +149,17 @@ RSpec.describe Alimento::Lista do
     lista << "test"
     lista << 4
     expect(lista.last).to eq(4)
-  end  
+  end
+
+  lista_española = Alimento::Lista.new(chocolate, lentejas, nuez)
+  lista_vasca = Alimento::Lista.new(salmon, huevos, lentejas, queso)
+  lista_vegetaria = Alimento::Lista.new(huevos, lecheVaca, queso, chocolate)
+  lista_vegetaliana = Alimento::Lista.new(tofu, lentejas, nuez)
+  lista_carnivora = Alimento::Lista.new(carneVaca, carneCordero, cerveza)
+
+  it "Estimación emisiones diarias de GEI" do
+    alimento = lista_española.first
+    gei = alimento.calcularGEI(*lista_española)
+    expect(gei).to eq(4.6)
+  end
+end  
