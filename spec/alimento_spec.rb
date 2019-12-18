@@ -1,5 +1,5 @@
-require "./lib/alimento.rb"
-require "./lib/Lista.rb"
+require "spec_helper"
+require "alimento"
 
 
 alimento = Alimento::Alimento.new("carne de vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
@@ -78,6 +78,7 @@ RSpec.describe Alimento::Alimento do
   end
 end
 
+  
 RSpec.describe Alimento::Lista do
 
   it "has a version number" do

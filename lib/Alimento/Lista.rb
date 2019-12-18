@@ -1,5 +1,3 @@
-require "alimento/version"
-
 class Error < StandardError; end
 
 module Alimento
@@ -7,7 +5,9 @@ module Alimento
   Nodo = Struct.new(:value, :next, :prev)
 
   class Lista
-
+	
+    include Enumerable
+    include Comparable
     attr_reader :head, :tail
 
 
@@ -83,5 +83,18 @@ module Alimento
     def last
       @tail.value
     end
+
+    def <=>(algo)
+    end
+
+    def each
+	aux = Nodo.new(nil,nil,nil)
+	aux = @head
+	while(aux != nil)
+		yield aux["valor"]
+		aux = aux["siguiente"]
+	end
+    end
+
   end
 end
