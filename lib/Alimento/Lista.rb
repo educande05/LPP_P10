@@ -22,7 +22,7 @@ module Alimento
     end
 
     def empty
-      head == tail && head.value == nil
+      @head.value == nil
     end
 
     def size
@@ -88,11 +88,10 @@ module Alimento
     end
 
     def each
-	aux = Nodo.new(nil,nil,nil)
 	aux = @head
 	while(aux != nil)
-		yield aux["valor"]
-		aux = aux["siguiente"]
+		yield aux.value
+		aux = aux.next
 	end
     end
 

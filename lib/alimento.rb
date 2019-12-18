@@ -1,6 +1,7 @@
 require "Alimento/version"
 require "Alimento/alimento"
-require "Alimento/lista"
+require "Alimento/Lista"
+require "Alimento/plato"
 
 
 module Alimento

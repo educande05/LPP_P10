@@ -1,5 +1,6 @@
 require "spec_helper"
 require "alimento"
+require "Alimento/plato"
 
 
 alimento = Alimento::Alimento.new("carne de vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
@@ -37,7 +38,7 @@ RSpec.describe Alimento::Alimento do
   end
 
   it "Existe un GEI para el alimento" do
-    expect(alimento).to have_attributes(:GEI => 50.0)
+    expect(alimento).to have_attributes(:gei => 50.0)
   end
 
   it "Existe un terreno para el alimento" do
@@ -160,8 +161,84 @@ RSpec.describe Alimento::Lista do
   lista_carnivora = Alimento::Lista.new(carneVaca, carneCordero, cerveza)
 
   it "Estimación emisiones diarias de GEI" do
-    alimento = lista_española.first
-    gei = alimento.calcularGEI(*lista_española)
-    expect(gei).to eq(4.6)
+  
+	alimento = lista_española.first
+	sum = 0
+	lista_española.each { |x| sum += x.getGEI }
+    	expect(sum.round(2)).to eq(3.0)
   end
-end  
+
+end
+
+
+RSpec.describe Alimento::PlatoA do 
+
+# Array de platos = 1 menu 
+	before :all do
+
+	@lista_carne = Alimento::Lista.new(carneVaca,carneCordero,cerdo,pollo)
+	@lista_gramos_carne = Alimento::Lista.new(300,200,350,200)
+	@plato_carne = Alimento::PlatoA.new("Plato de Carne", @lista_carne, @lista_gramos_carne)
+
+	@lista_vegana = Alimento::Lista.new(lentejas,tofu,nuez,cerveza)
+	@lista_gramos_vegana = Alimento::Lista.new(300,300,100,300)
+	@plato_vegano = Alimento::PlatoA.new("Plato Vegano",@lista_vegana, @lista_gramos_vegana)
+
+	@lista_mar = Alimento::Lista.new(camarones,salmon,cerveza)
+	@lista_gramos_mar = Alimento::Lista.new(200,400,300)
+	@plato_mar = Alimento::PlatoA.new("Plato Mar", @lista_mar, @lista_gramos_mar)
+
+	@precios = [9.50, 7.25, 8.00] 
+
+	@menu = [@plato_carne,@plato_vegano,@plato_mar]
+#	puts @plato_carne, @plato_vegano, @plaato_mar
+	@indice_energia = @menu.map { |x| if x.get_valor_calorico < 670
+						1.0
+					  elsif x.get_valor_calorico > 830
+						3.0
+					  else 
+						2.0
+					  end
+	}
+
+	@indice_carbono = @menu.map { |x| if x.get_gei < 800
+						1.0
+					  elsif x.get_gei > 1200
+						3.0
+					  else 
+						2.0
+					  end
+	}
+
+	@indice_huella_nutricional = @indice_energia.zip(@indice_carbono).map { |x| x.reduce(:+) / 2 }
+
+	
+	end
+	
+	it "Comprobar máxima huella nutricional" do
+		expect(@menu.zip(@indice_huella_nutricional).reduce { |x,y| (x.last > y.last) ? x : y }.first).to eq(@plato_vegano)
+	end
+
+	it "Comprobar incremento de precios" do 
+		expect(@precios.map { |x| x * @indice_huella_nutricional.reduce { |x,y| x > y ? x : y } }).to eq([19.0,14.5,16.0])
+	
+	end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

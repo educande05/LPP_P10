@@ -4,7 +4,7 @@ module Alimento
   
   class Alimento
   
-  include comparable	
+  include Comparable	
   attr_reader :nombre, :proteinas, :carbohidratos, :lipidos, :gei, :terreno, :eficiencia
     def initialize(nombre, proteinas, carbohidratos, lipidos, gei, terreno)
       @nombre = nombre
@@ -13,20 +13,13 @@ module Alimento
       @lipidos = lipidos
       @gei = gei
       @terreno = terreno
-      @eficiencia = getValorCalorico
     end
     
     def <=>(algo)
-	@eficiencia<=>algo.getValorCalorico
+	if algo != nil
+		getValorCalorico<=>algo.getValorCalorico
+ 	end   
     end
-
-    def == (algo)
-	if ((proteinas==algo.proteinas) && (@carbohidratos==algo.carbohidratos) && (@lipidos==algo.lipidos) && (@gei==algo.gei) && (@terreno==algo.terreno))
-		return true
-	else 
-		return false
-    end
-
 
     def getNombre
       @nombre

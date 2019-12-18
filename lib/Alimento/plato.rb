@@ -38,6 +38,13 @@ module Alimento
 			return sum			
 		end
 
+		def get_gei 
+		sum = 0
+		@lista_alim.each { |x| sum += x.getGEI }
+		return sum			
+		end
+		
+
 		def to_s
 			formato = "nombre: #{@nombre}: "
 			@lista_alim.each { |x| formato += x.to_s + " " }
@@ -47,11 +54,11 @@ module Alimento
 
 	class PlatoA < Plato
 		
-		include comparable
+		include Comparable
 		attr_reader :nombre, :lista_alim, :lista_gramos
 	
 		def initialize(nombre, lista_alim, lista_gramos)
-			super (nombre,lista_alim,lista_gramos)
+			super(nombre,lista_alim,lista_gramos)
 		end
 
 		def <=>(algo)
