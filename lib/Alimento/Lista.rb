@@ -1,16 +1,26 @@
-class Error < StandardError; end
 
+
+#Modulo alimento, Contiene las clases de las practicas de LPP
 module Alimento
+
+  #CLase error
+  class Error < StandardError; end
 
   Nodo = Struct.new(:value, :next, :prev)
 
+  #Clase Lista Contiene una lista
   class Lista
-	
+ 
+    #Enumerable   
     include Enumerable
+    
+    #Comparable
     include Comparable
+
+    #Atributos; head, tail
     attr_reader :head, :tail
 
-
+    #Constructor de Lista
     def initialize(*values)
       @head = Nodo.new(nil, nil, nil)
       @tail = @head
@@ -20,11 +30,12 @@ module Alimento
       end
 
     end
-
+    #Comprueba si lista esta vacía
     def empty
       @head.value == nil
     end
 
+    #Devuelve el tamaño de Lista
     def size
       if empty
         0
@@ -41,6 +52,7 @@ module Alimento
       end
     end
 
+    #Devuelve el tamaño de Lista
     def size
       if empty
         0
@@ -56,7 +68,8 @@ module Alimento
         i
       end
     end
-
+    
+    #Añade un nuevo elemento a la lista
     def unshift(value)
       if empty
         @head.value = value
@@ -71,22 +84,27 @@ module Alimento
         pre_tail.next = aux
       end
     end
-
+    
+    #Añade un nuevo elemento a la lista
     def <<(value)
       unshift(value)
     end
-
+ 
+    #Devuelve el primer valor de la lista
     def first
       @head.value
     end
 
+    #Devuelve el ultimo valor de la lista   
     def last
       @tail.value
     end
-
+    
+    #Comparador
     def <=>(algo)
     end
-
+ 
+    #Devuelve cada valor de la lista
     def each
 	aux = @head
 	while(aux != nil)
