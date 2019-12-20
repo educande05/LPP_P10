@@ -1,6 +1,5 @@
 require "spec_helper"
 require "alimento"
-require "Alimento/plato"
 
 
 alimento = Alimento::Alimento.new("carne de vaca", 21.1, 0.0, 3.1, 50.0, 164.0)
