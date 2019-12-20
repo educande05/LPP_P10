@@ -1,4 +1,5 @@
-#PRÁCTICA 8 
+#Práctica de Laboratorio #9. Programación Funcional. Funciones de orden superior.
+
 #EDUARDO PÉREZ SUÁREZ
 
 
