@@ -242,8 +242,21 @@ RSpec.describe Alimento::PlatoDSL do
 	end
 end
 
+Spec.describe Alimento::MenuDSL do 
+	 before :all do
+		 @menu = Alimento::MenuDSL.new("Combinado nº. 1") do
+			 descripcion	"hamburguesa, papas, refresco" 
+			 componente	:informacion => "Hamburguesa especial de la casa",
+				 	:dinero => 4.25
+			 componente	:informacion => "Papas pequeñas",
+				 	:dinero => 1.75
+			 componente	:informacion => "huevo",
+				 	:dinero => 1.50
+			 precio		:7.50
+		end
+	end
 
-
+end
 
 
 
