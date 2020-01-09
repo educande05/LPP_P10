@@ -2,6 +2,7 @@
 module Alimento 
 
 	class MenuDSL
+
 		attr_accessor :nombre, :descripcion, :listaPlatos, :listaPrecios, :precio
 
                 def initialize( nombre, &block )
@@ -47,3 +48,5 @@ module Alimento
                 end
         end
 end
+
+

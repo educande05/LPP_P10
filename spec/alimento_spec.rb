@@ -225,8 +225,22 @@ RSpec.describe Alimento::PlatoA do
 end
 
 
+RSpec.describe Alimento::PlatoDSL do
+	before :all do 
+		@plato = Alimento::PlatoDSL.new("Hamburguesa") do
+			nombre		"Hamburguesa especial de la casa"
+			alimento	"carne de vaca",
+					:gramos => 100
+			alimento	"huevo",
+					:gramos => 20
 
-
+		end
+	end
+	
+	it "Comprobar el metodo to_s" do
+		expect(@plato.to_s).to eq("Hamburguesa especial de la casa =  [ carne de vaca - 100 ]  [ huevo - 20 ] ")
+	end
+end
 
 
 
