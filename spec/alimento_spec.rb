@@ -242,20 +242,23 @@ RSpec.describe Alimento::PlatoDSL do
 	end
 end
 
-Spec.describe Alimento::MenuDSL do 
-	 before :all do
-		 @menu = Alimento::MenuDSL.new("Combinado nº. 1") do
+RSpec.describe Alimento::MenuDSL do 
+	before :all do
+		@menu = Alimento::MenuDSL.new("Combinado n. 1") do
 			 descripcion	"hamburguesa, papas, refresco" 
 			 componente	:informacion => "Hamburguesa especial de la casa",
 				 	:dinero => 4.25
 			 componente	:informacion => "Papas pequeñas",
 				 	:dinero => 1.75
-			 componente	:informacion => "huevo",
+			 componente	:informacion => "Refrescos de lata",
 				 	:dinero => 1.50
-			 precio		:7.50
+			 precio		7.50
 		end
 	end
 
+	it "Comprobar el metodo to_s" do
+		expect(@menu.to_s).to eq("Combinado n. 1 ( hamburguesa, papas, refresco )  =  [ Hamburguesa especial de la casa + 4.25 ]  [ Papas pequeñas + 1.75 ]  [ Refrescos de lata + 1.5 ]  Precio total: 7.5 ")
+	end
 end
 
 
