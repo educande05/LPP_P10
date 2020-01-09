@@ -1,4 +1,4 @@
-#Práctica de Laboratorio #9. Programación Funcional. Funciones de orden superior.
+#Práctica de Laboratorio #10. Lenguajes de Dominio Especifico (DSL - Domain Specific Languages).
 
 #EDUARDO PÉREZ SUÁREZ
 
