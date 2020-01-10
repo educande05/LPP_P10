@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Eduardo Pérez Suárez"]
   spec.email         = ["alu0100890174@ull.edu.es"]
 
-  spec.summary       = %q{Gema para la practica 6 de alimentos.}
-  spec.description   = %q{Esta práctica sirve para comprobar las funcionalidades de spec y trabajar con clases en ryby}
-  spec.homepage      = "https://github.com/ULL-ESIT-LPP-1920/tdd-educande05.git"
+  spec.summary       = %q{Gema para la practica 10 de alimentos de Lenguajes y Paradigmas de la Programación.}
+  spec.description   = %q{En esta practica trabajaremos los lenguajes de Dominio Especifico DSL y utilizaremos herramientas para monitorear nuestro codigo en git}
+  spec.homepage      = "https://github.com/educande05/LPP_P10.git"
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "https://github.com/ULL-ESIT-LPP-1819/tdd-alu0101061672"
+    spec.metadata["allowed_push_host"] = "https://github.com/educande05/LPP_P10.git"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
